@@ -2,12 +2,13 @@
 # Never commit this: it contains a GitHub access token.
 .gh-config/
 
-# Edge test profiles created by the verification tooling.
+# Edge test profiles and run logs created by the verification tooling.
 _probe/edge-shot/
 _probe/edge-*/
 _probe/DELETE-ME-*/
 _probe/zipcheck/
 _probe/tmp/
+_probe/*.log
 
 # Local diagnostics
 _diag-network.cmd
