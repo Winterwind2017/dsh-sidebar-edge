@@ -1,43 +1,48 @@
-# 隐私政策页面 · 部署到 GitHub Pages
+# 隐私政策页 · GitHub Pages 部署（已完成）
 
-商店需要一个**公开可访问**的隐私政策 URL。步骤分两段：需要你登录 GitHub 的那一步，我做不到；登录之后我可以全部接手。
+**现状：已上线。** 填到商店的隐私政策 URL 是：
 
-## 1. 需要你做（约 2 分钟）
+```
+https://winterwind2017.github.io/dsh-sidebar-edge/
+```
 
-在任意终端运行：
+## 部署方式
+
+- 仓库：<https://github.com/Winterwind2017/dsh-sidebar-edge>（公开）
+- 页面源文件：仓库根目录的 `site/index.html`（中英双语隐私政策）
+- 发布工作流：[`.github/workflows/pages.yml`](../.github/workflows/pages.yml)
+  — `actions/upload-pages-artifact` 上传 `site/`，`actions/deploy-pages` 部署
+- Pages 源：已设为 **GitHub Actions**（`build_type: workflow`）
+
+改动 `site/` 并推送到 `main` 后会自动重新发布；也可在 Actions 页手动 `workflow_dispatch`。
+
+## 核查命令
 
 ```powershell
-gh auth login
+# 最近的工作流运行
+gh run list --repo Winterwind2017/dsh-sidebar-edge --limit 5
+
+# 某次运行的日志
+gh run view <run-id> --repo Winterwind2017/dsh-sidebar-edge --log
+
+# Pages 配置
+gh api repos/Winterwind2017/dsh-sidebar-edge/pages
 ```
 
-选择 `GitHub.com` → `HTTPS` → 用浏览器登录（或粘贴 token）。完成后告诉我一句"登录好了"。
+## 备注：gh 在本机的两个坑（已解决）
 
-## 2. 我接手（你登录后）
+1. `gh` 默认把配置写到 `%APPDATA%\GitHub CLI`，在本项目的沙箱里不可写 →
+   已用 `GH_CONFIG_DIR` 指向仓库内的 `.gh-config/`（已 git-ignore），登录由
+   [`../tools/gh-auth.cmd`](../tools/gh-auth.cmd) 完成。
+2. 默认把 token 存进 Windows 凭据管理器，写入失败会导致整次登录作废 →
+   已改为 `--insecure-storage`，token 落在 `.gh-config/hosts.yml`。
 
-1. 创建公开仓库 `dsh-sidebar-edge`
-2. 提交 `site/index.html`（中英文隐私政策，已在本地写好）与 `extension/`、`tools/`、`store/`、`docs/`
-3. 开启 GitHub Pages（源：默认分支根目录，或把 `site/` 设为发布目录）
-4. 等 Pages 构建完成后，取出最终 URL 并**回填到 `STORE.md` 的第 4.5 节**
-5. 用 `web_fetch` 实测该 URL 可匿名访问、内容完整
-
-预计最终地址形如：
-
-```
-https://<你的GitHub用户名>.github.io/dsh-sidebar-edge/
-```
-
-> 如果你不想把整套源码公开，也可以只建一个更小的仓库（仅 `site/index.html` + `README.md`），
-> 隐私政策不要求与源码同仓。
-
-## 3. 如果你没有 GitHub 账号 / 不想用 Pages
-
-替代方案（任选其一，URL 同样要能匿名访问）：
+## 替代方案（如需换地址）
 
 | 方案 | 说明 |
 | --- | --- |
 | Cloudflare Pages / Vercel | 直接部署 `site/` 目录，免费且无需 GitHub |
 | 已有个人网站 | 把 `site/index.html` 内容挂到任意静态路径 |
-| GitHub Gist | 可以用于 `raw` 链接，但不够正式，审核观感较差 |
+| GitHub Gist | 可用于 `raw` 链接，但不够正式，审核观感较差 |
 
-无论哪种，都把最终 URL 填进 Partner Center 的 **隐私 → 隐私政策 URL**，
-并同步更新 `STORE.md` 第 4.5 节。
+更换后请同步更新 [STORE.md](STORE.md) 第 4.5 节与仓库 README 中的链接。

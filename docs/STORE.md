@@ -119,14 +119,15 @@ This extension has a single purpose: to open and focus a locally running DeepSee
 
 ### 4.5 隐私政策 URL
 
-填入你确认后的公开地址（见 `DEPLOY-PAGES.md` 的部署步骤），例如：
+**已上线，直接粘贴这个地址：**
 
 ```
-https://<你的GitHub用户名>.github.io/dsh-sidebar-edge/
+https://winterwind2017.github.io/dsh-sidebar-edge/
 ```
 
-> 若审阅人认为"不收集数据"因此无需隐私政策，也可在该页选"否"；但**提供可访问的政策 URL 更稳妥**，
-> 我们已把中英文政策写好（`../site/index.html`）。
+> 该页面由本仓库 `site/index.html` 生成，通过 GitHub Actions 发布到 GitHub Pages
+> （工作流：`.github/workflows/pages.yml`，Pages 源已设为 "GitHub Actions"）。
+> 内容为中英双语，涵盖数据实践、网络范围与联系方式；后续改动 `site/` 后推送到 `main` 会自动重新发布。
 
 ---
 
