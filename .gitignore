@@ -1,0 +1,19 @@
+# gh CLI credentials for this project (tools/gh-auth.cmd stores the token here).
+# Never commit this: it contains a GitHub access token.
+.gh-config/
+
+# Edge test profiles created by the verification tooling.
+_probe/edge-shot/
+_probe/edge-*/
+_probe/DELETE-ME-*/
+_probe/zipcheck/
+_probe/tmp/
+
+# Local diagnostics
+_diag-network.cmd
+
+# OS / editor noise
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

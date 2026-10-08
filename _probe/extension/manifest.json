@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "DSH SameSite probe",
+  "version": "0.0.1",
+  "description": "Throwaway probe: does a SameSite=Strict session cookie work inside an extension iframe?",
+  "background": { "service_worker": "sw.js" },
+  "permissions": ["tabs"],
+  "host_permissions": ["http://127.0.0.1/*", "http://localhost/*"]
+}

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="optionsTitle">DSH Sidebar · Settings</title>
+    <link rel="stylesheet" href="sidepanel.css" />
+    <style>
+      body { max-width: 760px; margin: 0 auto; padding: 24px; font-size: 14px; }
+      h1 { font-size: 18px; margin-bottom: 4px; }
+      .lead { color: var(--muted); margin-top: 0; }
+      .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .card { padding: 16px; }
+      .wide { grid-column: 1 / -1; }
+      label { font-size: 12px; }
+      .check { display: flex; gap: 8px; align-items: center; margin-top: 10px; }
+      .check input { width: auto; }
+      .check label { margin: 0; font-size: 13px; color: var(--fg); }
+    </style>
+  </head>
+  <body>
+    <h1 data-i18n="optionsTitle">DSH Sidebar · Settings</h1>
+    <p class="lead" data-i18n="optionsLead"></p>
+
+    <section class="card">
+      <div class="grid">
+        <div class="wide">
+          <label for="address" data-i18n="addressLabel"></label>
+          <input id="address" type="text" spellcheck="false" data-i18n-placeholder="addressPlaceholder" />
+        </div>
+        <div class="wide">
+          <label for="token" data-i18n="tokenLabel"></label>
+          <input id="token" type="text" spellcheck="false" data-i18n-placeholder="tokenPlaceholder" />
+        </div>
+      </div>
+
+      <div class="check">
+        <input id="autoOpen" type="checkbox" />
+        <label for="autoOpen" data-i18n="autoOpenLabel"></label>
+      </div>
+
+      <div class="row">
+        <button id="save" data-i18n="saveButton"></button>
+        <button id="detect" data-i18n="detectButton"></button>
+        <button id="open" data-i18n="openButtonShort"></button>
+        <button id="close" data-i18n="closeButtonShort"></button>
+      </div>
+      <p class="hint" id="hint"></p>
+    </section>
+
+    <section class="card note">
+      <h2 data-i18n="notesTitle"></h2>
+      <p data-i18n="notesBody"></p>
+      <p class="muted" data-i18n="notesFootnote"></p>
+    </section>
+
+    <script src="i18n.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

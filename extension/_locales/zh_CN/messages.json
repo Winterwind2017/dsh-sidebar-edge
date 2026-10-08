@@ -1,0 +1,55 @@
+{
+  "extName": {
+    "message": "DSH 侧边栏",
+    "description": "扩展名称，显示在浏览器与商店一览中。"
+  },
+  "extDescription": {
+    "message": "在 Edge 侧边栏一键打开本机运行的 DeepSeek Harness（dsh web）界面，并随时查看连接状态。",
+    "description": "简短说明，显示在商店一览顶部，上限 132 字符。"
+  },
+  "panelTitle": { "message": "DSH 侧边栏" },
+  "checking": { "message": "正在检查…" },
+  "onlineLogin": { "message": "服务在线（当前标签页未登录，属正常）" },
+  "onlineHttp": { "message": "服务在线（HTTP $STATUS$）", "placeholders": { "status": { "content": "$1" } } },
+  "offline": { "message": "无法连接，请确认 DeepSeek Harness 正在运行" },
+  "openButton": { "message": "在侧栏窗口打开 DSH" },
+  "openButtonReload": { "message": "重新加载侧栏窗口" },
+  "focusButton": { "message": "切换到已打开的窗口" },
+  "closeButton": { "message": "关闭窗口" },
+  "hintHasToken": { "message": "已保存启动 token，打开时会自动兑换登录态。" },
+  "hintNoToken": { "message": "未保存 token：若窗口显示 401，请把 DSH 打印的带 token 链接整段粘到下面「启动 token」后保存。" },
+  "openedAt": { "message": "已在窗口 $ID$ 打开 $ADDRESS$", "placeholders": { "address": { "content": "$1" }, "id": { "content": "$2" } } },
+  "openFailed": { "message": "打开失败：$ERROR$", "placeholders": { "error": { "content": "$1" } } },
+  "windowGone": { "message": "窗口已不存在，请重新打开。" },
+  "windowClosed": { "message": "已关闭 DSH 窗口。" },
+  "settingsTitle": { "message": "连接设置" },
+  "addressLabel": { "message": "DSH 地址" },
+  "addressPlaceholder": { "message": "http://127.0.0.1:19387" },
+  "tokenLabel": { "message": "启动 token（可选，粘贴带 token 的完整链接更省事）" },
+  "tokenPlaceholder": { "message": "把 dsh 打印的 ?token=… 整段贴到这里" },
+  "saveButton": { "message": "保存" },
+  "detectButton": { "message": "自动检测端口" },
+  "savedAt": { "message": "已保存：$ADDRESS$", "placeholders": { "address": { "content": "$1" } } },
+  "saveFailed": { "message": "保存失败：$ERROR$", "placeholders": { "error": { "content": "$1" } } },
+  "detecting": { "message": "正在探测常见端口…" },
+  "detectedAt": { "message": "检测到 DSH：$ADDRESS$", "placeholders": { "address": { "content": "$1" } } },
+  "detectFailed": { "message": "未检测到运行中的 DSH。请确认桌面端已启动，或手动填写端口。" },
+  "whyTitle": { "message": "为什么不是把界面嵌进侧边栏？" },
+  "whyBody": {
+    "message": "dsh web 的会话 cookie 是 HttpOnly; SameSite=Strict。在扩展侧边栏里它属于跨站 iframe：换取登录态和普通请求都能带上 cookie，但 WebSocket 握手带不上，而 DSH 的所有 RPC 都走 WebSocket（握手被 401 拒绝，套接字以 1006 关闭）。同一个页面作为顶层窗口打开时 cookie 正常随握手发出，因此界面在窗口里运行。"
+  },
+  "whyFootnote": { "message": "本插件不做任何中间人代理，也不改写 DSH 的 cookie 或签名，只负责打开与聚焦。" },
+  "statusFailed": { "message": "状态读取失败：$ERROR$", "placeholders": { "error": { "content": "$1" } } },
+  "optionsTitle": { "message": "DSH 侧边栏 · 设置" },
+  "optionsLead": { "message": "配置 Edge 侧边栏要连接的 dsh web 地址，并管理承载界面的窗口。" },
+  "autoOpenLabel": { "message": "浏览器启动时自动打开 DSH 窗口" },
+  "openButtonShort": { "message": "打开 DSH 窗口" },
+  "closeButtonShort": { "message": "关闭 DSH 窗口" },
+  "notesTitle": { "message": "说明" },
+  "notesBody": {
+    "message": "DSH 的会话 cookie 是 HttpOnly; SameSite=Strict，且每个进程只打印一次性 ?token=…。顶层窗口是本插件唯一能保证 WebSocket 会话成立的位置：在扩展侧边栏的跨站 iframe 中，普通请求能带上 cookie，但 WebSocket 握手带不上，DSH 的 RPC 会全部失败。"
+  },
+  "notesFootnote": { "message": "插件不代理、不改写 cookie、不修改 DSH 源码，只负责打开与聚焦窗口；token 在兑换成功后即从存储中清除。" },
+  "windowOpenLabel": { "message": "窗口已打开" },
+  "tokenStoredLabel": { "message": "已保存启动 token" }
+}

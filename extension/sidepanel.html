@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DSH Sidebar</title>
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <header class="head">
+      <div class="brand">
+        <span class="dot" id="dot" aria-hidden="true"></span>
+        <div>
+          <h1 data-i18n="panelTitle">DSH Sidebar</h1>
+          <p class="muted" id="summary" data-i18n="checking">Checking…</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="card">
+      <button class="primary" id="open" data-i18n="openButton">Open DSH in a side window</button>
+      <div class="row">
+        <button id="focus" data-i18n="focusButton" hidden>Switch to the open window</button>
+        <button id="close" data-i18n="closeButton" hidden>Close window</button>
+      </div>
+      <p class="hint" id="openHint"></p>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="settingsTitle">Connection</h2>
+      <label for="address" data-i18n="addressLabel">DSH address</label>
+      <input id="address" type="text" spellcheck="false" data-i18n-placeholder="addressPlaceholder" placeholder="http://127.0.0.1:19387" />
+      <label for="token" data-i18n="tokenLabel">Launch token</label>
+      <input id="token" type="text" spellcheck="false" data-i18n-placeholder="tokenPlaceholder" placeholder="paste the whole ?token=… link" />
+      <div class="row">
+        <button id="save" data-i18n="saveButton">Save</button>
+        <button id="detect" data-i18n="detectButton">Detect port</button>
+      </div>
+      <p class="hint" id="settingsHint"></p>
+    </section>
+
+    <section class="card note">
+      <h2 data-i18n="whyTitle">Why is the UI not embedded in the side panel?</h2>
+      <p data-i18n="whyBody"></p>
+      <p class="muted" data-i18n="whyFootnote"></p>
+    </section>
+
+    <script src="i18n.js"></script>
+    <script src="sidepanel.js"></script>
+  </body>
+</html>

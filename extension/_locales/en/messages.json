@@ -1,0 +1,55 @@
+{
+  "extName": {
+    "message": "DSH Sidebar",
+    "description": "Extension name shown in the browser and in the store listing."
+  },
+  "extDescription": {
+    "message": "Open a running DeepSeek Harness (dsh web) UI from the Edge side panel and keep it one click away.",
+    "description": "Short description; shown at the top of the store listing and limited to 132 characters."
+  },
+  "panelTitle": { "message": "DSH Sidebar" },
+  "checking": { "message": "Checking…" },
+  "onlineLogin": { "message": "server online (this tab is not signed in, which is normal)" },
+  "onlineHttp": { "message": "server online (HTTP $STATUS$)", "placeholders": { "status": { "content": "$1" } } },
+  "offline": { "message": "cannot connect — make sure DeepSeek Harness is running" },
+  "openButton": { "message": "Open DSH in a side window" },
+  "openButtonReload": { "message": "Reload the side window" },
+  "focusButton": { "message": "Switch to the open window" },
+  "closeButton": { "message": "Close window" },
+  "hintHasToken": { "message": "A launch token is stored and will be exchanged automatically when opening." },
+  "hintNoToken": { "message": "No token stored: if the window shows 401, paste the full token link printed by DSH into “Launch token” below and save." },
+  "openedAt": { "message": "Opened $ADDRESS$ in window $ID$", "placeholders": { "address": { "content": "$1" }, "id": { "content": "$2" } } },
+  "openFailed": { "message": "Could not open: $ERROR$", "placeholders": { "error": { "content": "$1" } } },
+  "windowGone": { "message": "That window no longer exists; open it again." },
+  "windowClosed": { "message": "The DSH window was closed." },
+  "settingsTitle": { "message": "Connection" },
+  "addressLabel": { "message": "DSH address" },
+  "addressPlaceholder": { "message": "http://127.0.0.1:19387" },
+  "tokenLabel": { "message": "Launch token (optional — pasting the full token link is easier)" },
+  "tokenPlaceholder": { "message": "paste the whole ?token=… link printed by dsh" },
+  "saveButton": { "message": "Save" },
+  "detectButton": { "message": "Detect port" },
+  "savedAt": { "message": "Saved: $ADDRESS$", "placeholders": { "address": { "content": "$1" } } },
+  "saveFailed": { "message": "Save failed: $ERROR$", "placeholders": { "error": { "content": "$1" } } },
+  "detecting": { "message": "Probing common ports…" },
+  "detectedAt": { "message": "Detected DSH at $ADDRESS$", "placeholders": { "address": { "content": "$1" } } },
+  "detectFailed": { "message": "No running DSH found. Start the desktop app, or type the port manually." },
+  "whyTitle": { "message": "Why is the UI not embedded in the side panel?" },
+  "whyBody": {
+    "message": "The dsh web session cookie is HttpOnly; SameSite=Strict. Inside an extension side panel it belongs to a cross-site iframe: the token exchange and ordinary requests do carry the cookie, but the WebSocket handshake does not — and every DSH RPC travels over WebSocket (the handshake is refused with 401 and the socket closes with 1006). The same page opened as a top-level window carries the cookie normally, so the UI runs in a window."
+  },
+  "whyFootnote": { "message": "This extension proxies nothing and never rewrites DSH cookies or signatures; it only opens and focuses." },
+  "statusFailed": { "message": "Could not read status: $ERROR$", "placeholders": { "error": { "content": "$1" } } },
+  "optionsTitle": { "message": "DSH Sidebar · Settings" },
+  "optionsLead": { "message": "Configure which dsh web server the Edge side panel connects to, and manage the window that hosts the UI." },
+  "autoOpenLabel": { "message": "Open the DSH window automatically when the browser starts" },
+  "openButtonShort": { "message": "Open DSH window" },
+  "closeButtonShort": { "message": "Close DSH window" },
+  "notesTitle": { "message": "Notes" },
+  "notesBody": {
+    "message": "The DSH session cookie is HttpOnly; SameSite=Strict, and each process prints a one-time ?token=… . A top-level window is the only place this extension can guarantee a working WebSocket session: in a cross-site iframe inside the side panel, ordinary requests carry the cookie but the WebSocket handshake does not, so every DSH RPC fails."
+  },
+  "notesFootnote": { "message": "The extension does not proxy, does not rewrite cookies, and does not modify DSH; it only opens and focuses the window. The token is cleared from storage right after it is exchanged." },
+  "windowOpenLabel": { "message": "window open" },
+  "tokenStoredLabel": { "message": "launch token stored" }
+}

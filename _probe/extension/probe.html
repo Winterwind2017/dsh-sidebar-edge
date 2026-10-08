@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>DSH SameSite probe</title>
+    <style>
+      body { font: 13px/1.5 system-ui, sans-serif; padding: 12px; margin: 0; }
+      iframe { width: 100%; height: 240px; border: 1px solid #999; margin-top: 8px; }
+      #status { font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <!-- Stand-in for the side panel document: this page is served from a
+         chrome-extension:// origin, exactly like a side panel page is. -->
+    <div id="status">probing…</div>
+    <iframe id="f"></iframe>
+    <script src="probe.js"></script>
+  </body>
+</html>

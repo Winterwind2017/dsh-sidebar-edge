@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DSH 侧边栏 · 隐私政策 / Privacy Policy</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 40px 20px 80px;
+        font: 15px/1.75 system-ui, "Segoe UI", "Microsoft YaHei", sans-serif;
+      }
+      h1 { font-size: 24px; margin-bottom: 4px; }
+      h2 { font-size: 17px; margin-top: 32px; }
+      .meta { color: #6b7280; font-size: 13px; margin-top: 0; }
+      code { background: rgba(127,127,127,.16); padding: 1px 5px; border-radius: 4px; }
+      table { border-collapse: collapse; width: 100%; margin-top: 10px; font-size: 14px; }
+      th, td { border: 1px solid rgba(127,127,127,.35); padding: 6px 9px; text-align: left; vertical-align: top; }
+      .en { margin-top: 56px; border-top: 1px solid rgba(127,127,127,.35); padding-top: 24px; }
+    </style>
+  </head>
+  <body>
+    <h1>DSH 侧边栏 · 隐私政策</h1>
+    <p class="meta">生效日期：2026-10-08 · 适用于 Microsoft Edge 扩展「DSH 侧边栏」（DSH Sidebar）</p>
+
+    <h2>1. 一句话结论</h2>
+    <p>
+      本扩展<strong>不收集、不存储、不传输任何个人信息</strong>，也不包含分析、广告或追踪代码。
+      它唯一访问的网络地址是你自己电脑上的回环地址（<code>127.0.0.1</code> / <code>localhost</code>）。
+    </p>
+
+    <h2>2. 扩展做什么</h2>
+    <p>
+      本扩展提供一个 Edge 侧边栏面板，用来打开并聚焦你本机运行的 DeepSeek Harness（<code>dsh web</code>）界面。
+      它不代理、不修改、不拦截该界面的任何数据。
+    </p>
+
+    <h2>3. 处理哪些数据，以及为什么</h2>
+    <table>
+      <tr><th>数据</th><th>存放位置</th><th>用途</th><th>是否外发</th></tr>
+      <tr>
+        <td>DSH 服务地址（如 <code>http://127.0.0.1:19387</code>）</td>
+        <td>仅本机 <code>chrome.storage.local</code></td>
+        <td>记住要连接的本机服务</td>
+        <td>否</td>
+      </tr>
+      <tr>
+        <td>一次性启动 token</td>
+        <td>仅本机 <code>chrome.storage.local</code>，兑换成功后立即清除</td>
+        <td>完成 DSH 自身的登录态交换</td>
+        <td>否；只发送给 <code>127.0.0.1</code> 上的 DSH</td>
+      </tr>
+      <tr>
+        <td>承载窗口的 id 与窗口尺寸</td>
+        <td>仅本机 <code>chrome.storage.local</code></td>
+        <td>重新打开时复用窗口、保持侧栏形状</td>
+        <td>否</td>
+      </tr>
+    </table>
+    <p>
+      以上均以 <code>chrome.storage.local</code> 保存在你的设备上，不使用云端同步
+      （扩展未申请 <code>storage.sync</code>，也未申请 <code>cookies</code>、<code>webRequest</code>、
+      <code>history</code>、<code>bookmarks</code> 等权限）。
+    </p>
+
+    <h2>4. 网络访问范围</h2>
+    <p>
+      扩展的 <code>host_permissions</code> 只包含 <code>http://127.0.0.1/*</code> 与
+      <code>http://localhost/*</code>。它：
+    </p>
+    <ul>
+      <li>用该权限探测你本机的 DSH 是否在运行（根据 HTTP 状态码判断，<code>401</code> 亦视为在线）；</li>
+      <li>除此之外不向任何服务器发起请求，包括扩展开发者自己的服务器（本扩展没有此类服务器）；</li>
+      <li>不加载、不执行任何远程代码，全部逻辑都打包在扩展内。</li>
+    </ul>
+
+    <h2>5. 与 DSH 自身的关系</h2>
+    <p>
+      扩展会把 DSH 界面作为普通网页打开，因此你在该界面中的所有操作（包括你发送给模型的对话内容）
+      都直接发生在你的浏览器与你的本机 DSH 服务之间，依据 DeepSeek Harness 自身的隐私实践处理。
+      本扩展不读取、不记录这些内容。
+    </p>
+
+    <h2>6. 第三方</h2>
+    <p>不涉及。扩展不含任何第三方 SDK、分析服务、广告网络或数据交易。</p>
+
+    <h2>7. 儿童隐私</h2>
+    <p>扩展不面向儿童，也不收集任何年龄相关信息。</p>
+
+    <h2>8. 政策变更</h2>
+    <p>若本政策发生实质变更，将更新本页顶部的生效日期，并在扩展的商店一览中同步说明。</p>
+
+    <h2>9. 联系方式</h2>
+    <p>如有疑问，请通过扩展商店一览中的“支持”链接提交 issue。</p>
+
+    <section class="en">
+      <h1>Privacy Policy (English)</h1>
+      <p class="meta">Effective date: 2026-10-08 · Applies to the Microsoft Edge extension “DSH Sidebar”.</p>
+
+      <h2>1. Summary</h2>
+      <p>
+        This extension <strong>collects, stores and transmits no personal data</strong>. It contains no analytics,
+        advertising or tracking code. The only network address it ever contacts is the loopback address of your own
+        machine (<code>127.0.0.1</code> / <code>localhost</code>).
+      </p>
+
+      <h2>2. What it does</h2>
+      <p>
+        It provides an Edge side panel that opens and focuses a locally running DeepSeek Harness
+        (<code>dsh web</code>) UI. It does not proxy, modify or intercept any of that UI's data.
+      </p>
+
+      <h2>3. Data it handles</h2>
+      <table>
+        <tr><th>Data</th><th>Where it lives</th><th>Why</th><th>Sent off-device?</th></tr>
+        <tr>
+          <td>The DSH server address (e.g. <code>http://127.0.0.1:19387</code>)</td>
+          <td>Local <code>chrome.storage.local</code> only</td>
+          <td>Remember which local server to open</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>One-time launch token</td>
+          <td>Local <code>chrome.storage.local</code>; cleared right after it is exchanged</td>
+          <td>Complete DSH's own login handshake</td>
+          <td>No — only to DSH on <code>127.0.0.1</code></td>
+        </tr>
+        <tr>
+          <td>Hosting window id and bounds</td>
+          <td>Local <code>chrome.storage.local</code> only</td>
+          <td>Reuse the window and keep its panel shape</td>
+          <td>No</td>
+        </tr>
+      </table>
+      <p>
+        Nothing is synced to the cloud: the extension does not request <code>storage.sync</code>,
+        <code>cookies</code>, <code>webRequest</code>, <code>history</code> or <code>bookmarks</code>.
+      </p>
+
+      <h2>4. Network scope</h2>
+      <p>
+        <code>host_permissions</code> covers only <code>http://127.0.0.1/*</code> and
+        <code>http://localhost/*</code>, used solely to probe whether your local DSH is running (an HTTP
+        <code>401</code> also counts as online). No other requests are made, and no remote code is loaded or executed.
+      </p>
+
+      <h2>5. Relationship to DSH itself</h2>
+      <p>
+        The extension opens the DSH UI as an ordinary web page. Everything you do there — including the prompts you
+        send to a model — happens directly between your browser and your own local DSH service, under DSH's own
+        practices. This extension neither reads nor records any of it.
+      </p>
+
+      <h2>6. Third parties</h2>
+      <p>None. No third-party SDKs, analytics, ad networks or data brokerage.</p>
+
+      <h2>7. Children</h2>
+      <p>Not directed at children, and no age-related data is collected.</p>
+
+      <h2>8. Changes</h2>
+      <p>Material changes update the effective date above and the store listing.</p>
+
+      <h2>9. Contact</h2>
+      <p>Please use the support link on the extension's store listing.</p>
+    </section>
+  </body>
+</html>
