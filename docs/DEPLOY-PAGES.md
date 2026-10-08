@@ -29,13 +29,34 @@ gh run view <run-id> --repo Winterwind2017/dsh-sidebar-edge --log
 gh api repos/Winterwind2017/dsh-sidebar-edge/pages
 ```
 
-## 备注：gh 在本机的两个坑（已解决）
+## 备注：本机 gh / git 的配置坑（已全部解决）
 
-1. `gh` 默认把配置写到 `%APPDATA%\GitHub CLI`，在本项目的沙箱里不可写 →
-   已用 `GH_CONFIG_DIR` 指向仓库内的 `.gh-config/`（已 git-ignore），登录由
-   [`../tools/gh-auth.cmd`](../tools/gh-auth.cmd) 完成。
-2. 默认把 token 存进 Windows 凭据管理器，写入失败会导致整次登录作废 →
-   已改为 `--insecure-storage`，token 落在 `.gh-config/hosts.yml`。
+这台机器上有三个叠加的问题，当时的排查结论与最终处理：
+
+1. **代理**：浏览器走系统代理（WinINET，`127.0.0.1:7897`），但 `gh`/`git` 不读这个设置，直连 github.com 会超时。
+   → 已写入**用户级** git 配置：`git config --global http.proxy/https.proxy = http://127.0.0.1:7897`。
+   实测裸 `git ls-remote` / `git push` 均正常。
+2. **凭据存储**：`gh` 默认把 token 存进 Windows 凭据管理器，写入被拒会让整次登录作废。
+   → 登录时用 `gh auth login --web --insecure-storage`，token 以明文落在配置目录。
+3. **维护 agent 的文件沙箱**：它不能写 `C:\Users\<你>`（含 `%APPDATA%`），所以它无法自行完成上述两步。
+   → 已由 [`../tools/gh-auth.cmd`](../tools/gh-auth.cmd) 在未受限的终端里完成后复制到 gh 默认目录；
+   现在**裸 `gh` / 裸 `git` 都能用**，`tools/gh.cmd` 与 `tools/git.cmd` 只是可选的免代理/免环境变量包装器。
+
+复核命令：
+
+```powershell
+git config --global --get http.proxy      # http://127.0.0.1:7897
+git config --global --get credential.helper
+gh auth status                            # 从 %APPDATA%\GitHub CLI 读取
+git ls-remote --heads https://github.com/Winterwind2017/dsh-sidebar-edge.git
+```
+
+若哪天不用代理了，撤销命令：
+
+```powershell
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
 
 ## 替代方案（如需换地址）
 
