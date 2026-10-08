@@ -54,9 +54,14 @@
 | 字段 | 填什么 |
 | --- | --- |
 | 类别 | **生产力**（Productivity） |
-| 网站 | 留空，或填你的仓库地址：`https://github.com/<你的用户名>/dsh-sidebar-edge` |
-| 支持联系人详细信息 | 你的仓库 Issues 地址，或 `yuchengjin1988@gmail.com`（你本机 git 身份，可自行更换） |
+| 网站 | 仓库地址：`https://github.com/Winterwind2017/dsh-sidebar-edge` |
+| 支持联系人详细信息 | 仓库 Issues：`https://github.com/Winterwind2017/dsh-sidebar-edge/issues` |
 | 成人内容 | 不勾选 |
+
+> **关于支持联系方式与隐私**：这里刻意只填 Issues 链接，不填真实邮箱——本仓库是公开的，
+> 写进文档就等于公开邮箱。git 提交身份也已统一为 GitHub 的 noreply 地址
+> `294365634+Winterwind2017@users.noreply.github.com`。若你确实要在商店页留邮箱，
+> 建议用一个专门的公开邮箱，而不要用常用私人地址。
 
 点 **保存并继续**。
 
