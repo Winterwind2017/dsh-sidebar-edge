@@ -12,6 +12,7 @@ _probe/*.log
 
 # Local diagnostics
 _diag-network.cmd
+tools/setup-global-git.cmd
 
 # OS / editor noise
 Thumbs.db
